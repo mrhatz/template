@@ -11,18 +11,18 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment:
-      name: Approves
+      name: approvers
      
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
       - name: Set up JDK 16
         uses: actions/setup-java@v2
         with:
           java-version: '16'
           distribution: 'adopt' 
-          cache: 'gradle'    
-      - name: Build
-        run: ./gradlew build --no-daemon
+          cache: 'gradle'
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
