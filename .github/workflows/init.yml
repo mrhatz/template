@@ -19,8 +19,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set up JDK 16
-      uses: actions/setup-java@v2
+    - uses: actions/setup-java@v2
       with:
         java-version: '16'
-        distribution: 'adopt'      
-      run: ./gradlew build --no-daemon
+        distribution: 'adopt' 
+        cache: 'gradle'     
+    - run: ./gradlew build --no-daemon
