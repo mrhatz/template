@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: approvers
-      url: https://github.com/mrhatz/template
+      url: ${{ github.server_url }}/${{ github.repository }}
      
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
