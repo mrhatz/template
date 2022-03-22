@@ -3,7 +3,7 @@ name: Init Project
 on: 
   workflow_dispatch:
     inputs:
-      environment:
+      asdgdfhjgj:
         type: string
         description: 'Define project name'     
         required: true
@@ -17,4 +17,4 @@ jobs:
 
       - name: greet
         run: | 
-          echo "environment is ${{ github.event.inputs.environment }}"
+          echo "environment is ${{ github.event.inputs.asdgdfhjgj }}"
