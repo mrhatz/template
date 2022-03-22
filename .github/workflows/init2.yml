@@ -1,12 +1,6 @@
-name: Init Project
+name: Init Project 2
 
-on: 
-  workflow_dispatch:
-    inputs:
-      project_name:
-        type: string
-        description: 'Define project name'     
-        required: true
+on: [create, fork]  
 
 jobs:
   build:
@@ -29,7 +23,6 @@ jobs:
       url: "https://github.com/mrhatz/${{ github.event.inputs.project_name }}"
     steps:
       - name: Deploy
-        run: gh repo create mrhatz/${{ github.event.inputs.project_name }} -p mrhatz/template --private
+        run: echo "echo" ###gh repo create mrhatz/${{ github.event.inputs.project_name }} -p mrhatz/template --private
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
