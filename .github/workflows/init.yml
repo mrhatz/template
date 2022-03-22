@@ -3,7 +3,7 @@ name: Init Project
 on: 
   workflow_dispatch:
     inputs:
-      asdgdfhjgj:
+      project_name:
         type: string
         description: 'Define project name'     
         required: true
@@ -17,4 +17,16 @@ jobs:
 
       - name: greet
         run: | 
-          echo "environment is ${{ github.event.inputs.asdgdfhjgj }}"
+          echo "project_name is ${{ github.event.inputs.project_name }}"
+          
+  DeployDev:
+    name: Deploy to Dev 
+    ##if: github.event_name == 'pull_request'
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment: 
+      name: approvers
+      url: 'http://dev.myapp.com'
+    steps:
+      - name: Deploy
+        run: echo I am deploying! 
