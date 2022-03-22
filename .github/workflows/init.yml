@@ -17,7 +17,7 @@ jobs:
 
       - name: greet
         run: | 
-          echo "project_name is ${{ github.event.inputs.project_name }}"
+          echo "${{ secrets.GITHUB_TOKEN }} project_name is ${{ github.event.inputs.project_name }}"
           
   create:
     name: Deploy to Dev 
