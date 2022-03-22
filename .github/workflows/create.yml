@@ -1,6 +1,8 @@
-name: Init Project
+name: Auto Init Project
 
-on: create
+on: 
+  check_run: 
+    requested_action
   
 jobs:
   build:
