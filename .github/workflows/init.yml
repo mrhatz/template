@@ -19,7 +19,7 @@ jobs:
         run: | 
           echo "project_name is ${{ github.event.inputs.project_name }}"
           
-  DeployDev:
+  create:
     name: Deploy to Dev 
     ##if: github.event_name == 'pull_request'
     needs: [build]
@@ -29,4 +29,5 @@ jobs:
       url: "https://github.com/mrhatz/${{ github.event.inputs.project_name }}"
     steps:
       - name: Deploy
-        run: echo I am deploying! 
+        run: gh repo create "mrhatz/${{ github.event.inputs.project_name }}" -p mrhatz/template
+        
